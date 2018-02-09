@@ -12,9 +12,12 @@
 4) hook up javascript with jquery so inputs do things:
     javascript needs:
         -jquery:
-            -an event listener for the calculate button
-            -a function that packages inputs in an object
-            - a POST function to send inputs to server that receives a GET function with calculation output as a success function:
+            -an event listener for the calculate button that:
+                -takes in the both inputs and stores in variables
+                -wipes clean the inputs
+                -creates a function that packages inputs into an object
+            -then you need to make the Ajax-- made two functions that post inputs, then get the output of those inputs from the dom
+        - a POST function to send inputs to server that receives a GET function with calculation output as a success function:
 5) set up a router that intakes the jquery ajax functions 
     - create a function that handles the math-- ie 4 + 4 = 2 and send that back to DOM in the get function response above
 6) create a module with an empty array in it 

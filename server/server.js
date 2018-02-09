@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express ();
 
+app.use(express.static('server/public'));
+
 const port = 5550;
 
 app.listen(port, function () {
