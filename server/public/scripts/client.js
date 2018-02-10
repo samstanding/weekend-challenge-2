@@ -32,7 +32,7 @@ function sendEquation () {
     let equation = getEquation ();
     $.ajax({
         type:'POST',
-        url:'/send',
+        url:'/calculator/send',
         data: {newEquation:equation }
     }).done(function(response){
         console.log('added');
@@ -46,7 +46,7 @@ function sendEquation () {
 function getHistory () {
     $.ajax({
         type:'GET',
-        url:'/take'
+        url:'/calculator/take'
     }).done(function (response) {
         console.log(response);
     }).fail(function (response){
