@@ -24,6 +24,11 @@
     in router push each math object to the empty array in module
 7) create a function that updates new array of historical operations
     - take that function and send a GET function to the DOM to post the historical 
+** ok sam, we got this far. right now you're about to board your flight. if you're reading this, its too late... 
+i'm displaying my sums on the dom and getting the historical equations there too. I need to get my operation into an operational symbol, would need to do that in the module function. 
+
+8) build reset button that sets DOM back to normal (i don't think this needs to reset the historical array, but that's probably a good thing to do in tandom)
+
 
 8)HARD MODE: rather than having the user input their values, create number buttons that make it act more as a calculator
     -for that you'd create 10 buttons, oriented in a grid, each click on the button would i guess create an instance of that number in a string on the client.js-- the rest should be the same after that

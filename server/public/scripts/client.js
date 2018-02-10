@@ -50,9 +50,25 @@ function getHistory () {
         url:'/calculator/take'
     }).done(function (response) {
         console.log(response);
+        displayHistory(response);
     }).fail(function (response){
         console.log(response);
     })
+}
+//function that accepts my history object and turns that into more readable equations
+function displayHistory (arr) {
+    let view = $('#history');
+    view.empty();
+    //create a loop to iterate through array of objects and access each property 
+    for (object of arr) {
+        console.log(object);
+        //it just dawned on me that my operations are still in word form
+        //**need to go into module function to send through operation property in string
+        //i also just realized that i don't have the sum in this object....
+        let outputString = `<ul>
+        <li>${object.xValue} ${object.operation} ${object.yValue} = 46</li><ul>`;
+        view.append(outputString); 
+    } 
 }
 
 //need a function that takes an arugment of what the server sent back and displays it on the DOM
