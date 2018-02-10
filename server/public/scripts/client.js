@@ -36,7 +36,7 @@ function sendEquation () {
         data: {newEquation: equation }
     }).done(function(response){
         console.log('added');
-        displayCalculation ();
+        receiveCalculation ();
         getHistory();
         clearInputs ();
     }).fail(function (response){
@@ -56,13 +56,20 @@ function getHistory () {
 }
 
 //need a function that takes an arugment of what the server sent back and displays it on the DOM
-function displayCalculation () {
+function receiveCalculation () {
     $.ajax({
         type:'GET',
         url: '/calculator/calculate'
     }).done(function (response) {
         console.log(response);
+        displayCalculation(response);
     }).fail(function (response) {
         console.log(response);
     })
+}
+//to keep functions tight, make a display calculation function that appends calculation to DOM
+function displayCalculation(arr) {
+    let view = $('#sumDisplay');
+    view.empty();
+    view.append(`<p>${arr[arr.length-1]}</p>`); 
 }
