@@ -19,13 +19,21 @@ router.post('/send', function (req, res) {
     //displays success message 
     res.sendStatus(200);
 });
+//get function to send back the result of my calculation 
+router.get('/calculate', function (req, res) {
+    //send your array with the calculations in it
+    res.send(sumArray);
+    
+})
+
+
+
 //router get function to send the history array
 router.get('/take', function (req, res) {
     //assign variable to my function in my module that sent my array of historical calculations
     let history = calculatorModule.history();
     //what does this look like?
     console.log(`previous caclulations: ${history}`);
-    
     //send history to the DOM 
     res.send(history);
 
