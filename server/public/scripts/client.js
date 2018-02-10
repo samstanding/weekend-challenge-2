@@ -33,7 +33,7 @@ function sendEquation () {
     $.ajax({
         type:'POST',
         url:'/calculator/send',
-        data: {newEquation:equation }
+        data: {newEquation: equation }
     }).done(function(response){
         console.log('added');
         getHistory();
