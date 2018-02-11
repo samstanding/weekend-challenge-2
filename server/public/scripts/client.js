@@ -61,12 +61,10 @@ function displayHistory (arr) {
     view.empty();
     //create a loop to iterate through array of objects and access each property 
     for (object of arr) {
-        console.log(object);
-        //it just dawned on me that my operations are still in word form
-        //**need to go into module function to send through operation property in string
-        //i also just realized that i don't have the sum in this object....
+        console.log(object.sum);
+        //add a string to display the historical calculation
         let outputString = `<ul>
-        <li>${object.xValue} ${object.operation} ${object.yValue} = 46</li><ul>`;
+        <li>${object.xValue} ${object.operator} ${object.yValue} = ${object.sum}</li><ul>`;
         view.append(outputString); 
     } 
 }

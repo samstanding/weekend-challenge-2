@@ -2,7 +2,9 @@ class Calculate {
     constructor (xValue, operation, yValue) {
         this.xValue = xValue;
         this.operation = operation;
-        this.yValue = yValue;    
+        this.yValue = yValue; 
+        this.sum = this.calculate ();
+        this.operator =  this.operator ();
     } 
     calculate () {
         if (this.operation === 'add') {

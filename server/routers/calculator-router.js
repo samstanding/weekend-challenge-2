@@ -18,7 +18,8 @@ router.post('/send', function (req, res) {
     //displays success message 
     res.sendStatus(200);
 });
-//get function to send back the result of my calculation 
+//get function to send back the result of my calculation
+//I don't think I need this anymore-- since my function is in my class
 router.get('/calculate', function (req, res) {
     //send your array with the calculations in it
     res.send(sumArray);
