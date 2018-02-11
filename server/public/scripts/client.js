@@ -1,9 +1,17 @@
 $(document).ready(function () {
     $('#equals').on('click', function () {
         sendEquation();
-        clearInputs();//i just want to make sure this works and gets inputs off the dom
+        clearInputs();
 
     });
+    //this is the event listener for my history delete button
+    $('#history-btn').on('click', function () {
+        deleteHistory();
+    });//end listener for history button
+    //reset button function 
+    $('#reset').on('click', function () {
+        resetInterface();
+    })
 
 
 });//end onReady
@@ -74,4 +82,21 @@ function displayCalculation(obj) {
     let view = $('#sumDisplay');
     view.empty();
     view.append(`<p>${obj.sum}</p>`); 
+}
+
+function deleteHistory () {
+    $.ajax ({
+        type:'DELETE',
+        url: 'calculator/delete'
+    }).done (function (response) {
+        console.log('deleted history');
+    }).fail(function (response) {
+        console.log(response);
+    })
+}
+
+function resetInterface () {
+    clearInputs ();
+    $('#sumDisplay').empty();
+    $('#history').empty();
 }

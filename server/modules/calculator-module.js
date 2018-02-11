@@ -3,9 +3,7 @@ const calculatorClass = require('./calculator-class');
 //create a new instance of the class for the value that comes in and store it in the array
 
 //array of objects that stores all equations
-const historyArray = [
-    
-];
+const historyArray = [];
 
 
 

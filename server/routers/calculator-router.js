@@ -27,4 +27,8 @@ router.get('/take', function (req, res) {
 
 })
 
+router.delete('/delete', function (req, res) {
+    res.send('DELETE request to homepage');
+})
+
 module.exports = router;
