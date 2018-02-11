@@ -1,18 +1,14 @@
-//array of objects that stores all equations
-const historyArray = [];
+const calculatorClass = require('./calculator-class');
+//added calculator class-- this has all the functions you need-- this module needs to 
+//create a new instance of the class for the value that comes in and store it in the array
 
-//function that calculates equation 
-function calculate (obj) {
-    if (obj.operation === 'add') {
-        return parseInt(obj.xValue) + parseInt(obj.yValue);
-    } else if (obj.operation === 'subtract') {
-        return parseInt(obj.xValue) - parseInt(obj.yValue);
-    } else if (obj.operation === 'multiply') {
-        return parseInt(obj.xValue) * parseInt(obj.yValue);
-    } else if (obj.operation === 'divide') {
-        return parseInt(obj.xValue)/ parseInt(obj.yValue);
-    }
-}
+//array of objects that stores all equations
+const historyArray = [
+    
+];
+
+
+
 //returns equations-- for the purpose of sending back to the DOM
 function returnEquations () {
     return historyArray;
@@ -23,7 +19,7 @@ function addArray (obj) {
 }
 
 module.exports = { 
-    calculate : calculate,
+    calculate : calculatorClass,
     addEquation : addArray,
     history: returnEquations
 }
