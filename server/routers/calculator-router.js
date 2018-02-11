@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 //creates a variable to store module.exports = { calculate : calculate,  addEquation : addArray, history: returnEquations } from module
 const calculatorModule = require('../modules/calculator-module');
-const sumArray = [];
 
 //recieves inputs from DOM about what to calculate
 router.post('/send', function (req, res) { 
@@ -18,20 +17,11 @@ router.post('/send', function (req, res) {
     //displays success message 
     res.sendStatus(200);
 });
-//get function to send back the result of my calculation
-//I don't think I need this anymore-- since my function is in my class
-router.get('/calculate', function (req, res) {
-    //send your array with the calculations in it
-    res.send(sumArray);
-    
-})
 
 //router get function to send the history array
 router.get('/take', function (req, res) {
     //assign variable to my function in my module that sent my array of historical calculations
     let history = calculatorModule.history();
-    //what does this look like?
-    console.log(`previous caclulations: ${history}`);
     //send history to the DOM 
     res.send(history);
 

@@ -36,7 +36,6 @@ function sendEquation () {
         data: {newEquation: equation }
     }).done(function(response){
         console.log('added');
-        receiveCalculation ();
         getHistory();
         clearInputs ();
     }).fail(function (response){
@@ -66,24 +65,13 @@ function displayHistory (arr) {
         let outputString = `<ul>
         <li>${object.xValue} ${object.operator} ${object.yValue} = ${object.sum}</li><ul>`;
         view.append(outputString); 
+        displayCalculation(object);
     } 
 }
 
-//need a function that takes an arugment of what the server sent back and displays it on the DOM
-function receiveCalculation () {
-    $.ajax({
-        type:'GET',
-        url: '/calculator/calculate'
-    }).done(function (response) {
-        console.log(response);
-        displayCalculation(response);
-    }).fail(function (response) {
-        console.log(response);
-    })
-}
-//to keep functions tight, make a display calculation function that appends calculation to DOM
-function displayCalculation(arr) {
+//displays the output of the calculation
+function displayCalculation(obj) {
     let view = $('#sumDisplay');
     view.empty();
-    view.append(`<p>${arr[arr.length-1]}</p>`); 
+    view.append(`<p>${obj.sum}</p>`); 
 }

@@ -7,24 +7,24 @@ class Calculate {
         this.operator =  this.operator ();
     } 
     calculate () {
-        if (this.operation === 'add') {
+        if (this.operation === 'plus') {
             return parseInt(this.xValue) + parseInt(this.yValue);
-        } else if (this.operation === 'subtract') {
+        } else if (this.operation === 'minus') {
             return parseInt(this.xValue) - parseInt(this.yValue);
-        } else if (this.operation === 'multiply') {
+        } else if (this.operation === 'times') {
             return parseInt(this.xValue) * parseInt(this.yValue);
-        } else if (this.operation === 'divide') {
+        } else if (this.operation === 'divided by') {
             return parseInt(this.xValue)/ parseInt(this.yValue);
         }
     }
     operator () {
-        if (this.operation === 'add') {
+        if (this.operation === 'plus') {
             return '+';
-        } else if (this.operation === 'subtract') {
+        } else if (this.operation === 'minus') {
             return '-';
-        } else if (this.operation === 'multiply') {
+        } else if (this.operation === 'times') {
             return 'x'; 
-        } else if (this.operation === 'divide') {
+        } else if (this.operation === 'divided by') {
             return '/';
         }    
     }
