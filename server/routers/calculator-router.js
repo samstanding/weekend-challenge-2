@@ -10,15 +10,11 @@ router.post('/send', function (req, res) {
     let equation = req.body.newEquation;
     //logs out what equation looks like in the console
     console.log(equation);
-    //create new instance of calculate class
-    console.log(new calculatorModule.calculate(equation) );
-    let  equationObject = new calculatorModule.calculate(equation);
+    //create new instance of calculator class for inputs
+    let  equationObject = new calculatorModule.calculate(equation.xValue, equation.operation, equation.yValue);
+    console.log(equationObject);
     //adds new instance of class into the historical array
     calculatorModule.addEquation(equationObject);
-    // //shows the equation in the console
-    // console.log(calculatorModule.calculate(equation));
-    // //sends the result of the equation to global aray
-    // sumArray.push(calculatorModule.calculate(equation));
     //displays success message 
     res.sendStatus(200);
 });
