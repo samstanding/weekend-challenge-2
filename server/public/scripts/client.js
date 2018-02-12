@@ -13,7 +13,7 @@ $(document).ready(function () {
         resetInterface();
     })//end reset button
 
-    $('#history').on('click', function () {
+    $('.history').on('click', function () {
         deleteEquation();
     })
 
@@ -48,7 +48,7 @@ function sendEquation () {
     }).done(function(response){
         console.log('added');
         getHistory();
-        clearInputs ();
+        clearInputs();
     }).fail(function (response){
         console.log(response);
     })
@@ -67,16 +67,15 @@ function getHistory () {
 }
 //function that accepts my history object and turns that into more readable equations
 function displayHistory (arr) {
-    let view = $('#history');
+    let view = $('.history');
     view.empty();
     //create a loop to iterate through array of objects and access each property 
-    for (object of arr) {
-        console.log(object.sum);
+    for (let i = 0; i<arr.length; i++) {
         //add a string to display the historical calculation
         let outputString = `
-        <li>${object.xValue} ${object.operator} ${object.yValue} = ${object.sum}</li>`;
+        <li data-id=" ${i}">${arr[i].xValue} ${arr[i].operator} ${arr[i].yValue} = ${arr[i].sum}</li>`;
         view.append(outputString); 
-        displayCalculation(object);
+        displayCalculation(arr[i]);
     } 
 }
 
@@ -93,7 +92,7 @@ function deleteHistory () {
         url: 'calculator/delete'
     }).done (function (response) {
         console.log('deleted history');
-        $('#history').empty();
+        $('.history').empty();
     }).fail(function (response) {
         console.log(response);
     })
@@ -102,11 +101,9 @@ function deleteHistory () {
 function resetInterface () {
     clearInputs ();
     $('#sumDisplay').empty();
-    $('#history').empty();
+    $('.history').empty();
 }
 
 function deleteEquation() {
-    console.log('$(this).children()');
-    let x = $(this).children();
-    console.log(x);
+    console.log( $(this).data('id'));
 }
