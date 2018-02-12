@@ -27,8 +27,11 @@ router.get('/take', function (req, res) {
 
 })
 
-router.delete('/delete', function (req, res) {
-    res.send('DELETE request to homepage');
+router.get('/delete', function (req, res) {
+    let history = calculatorModule.history();
+    history.splice(0);
+    res.send(history);
+    
 })
 
 module.exports = router;

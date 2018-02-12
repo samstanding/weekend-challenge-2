@@ -86,10 +86,11 @@ function displayCalculation(obj) {
 
 function deleteHistory () {
     $.ajax ({
-        type:'DELETE',
+        type:'GET',
         url: 'calculator/delete'
     }).done (function (response) {
         console.log('deleted history');
+        $('#history').empty();
     }).fail(function (response) {
         console.log(response);
     })
