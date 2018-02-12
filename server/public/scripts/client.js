@@ -8,11 +8,14 @@ $(document).ready(function () {
     $('#history-btn').on('click', function () {
         deleteHistory();
     });//end listener for history button
-    //reset button function 
+
     $('#reset').on('click', function () {
         resetInterface();
-    })
+    })//end reset button
 
+    $('#history').on('click', function () {
+        deleteEquation();
+    })
 
 });//end onReady
 
@@ -70,8 +73,8 @@ function displayHistory (arr) {
     for (object of arr) {
         console.log(object.sum);
         //add a string to display the historical calculation
-        let outputString = `<ul>
-        <li>${object.xValue} ${object.operator} ${object.yValue} = ${object.sum}</li><ul>`;
+        let outputString = `
+        <li>${object.xValue} ${object.operator} ${object.yValue} = ${object.sum}</li>`;
         view.append(outputString); 
         displayCalculation(object);
     } 
@@ -100,4 +103,10 @@ function resetInterface () {
     clearInputs ();
     $('#sumDisplay').empty();
     $('#history').empty();
+}
+
+function deleteEquation() {
+    console.log('$(this).children()');
+    let x = $(this).children();
+    console.log(x);
 }
